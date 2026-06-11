@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 11, 2026 at 11:29 AM
+-- Generation Time: Jun 11, 2026 at 11:54 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.3
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_mahasiswa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dosen`
+--
+
+CREATE TABLE `dosen` (
+  `id` int NOT NULL,
+  `nidn` varchar(50) NOT NULL,
+  `nama` varchar(150) NOT NULL,
+  `keahlian` varchar(150) NOT NULL,
+  `status` enum('Aktif','Cuti','Keluar') DEFAULT 'Aktif',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`id`, `nidn`, `nama`, `keahlian`, `status`, `created_at`) VALUES
+(1, '123123123', 'ASD', 'asd', 'Aktif', '2026-06-11 11:42:07');
 
 -- --------------------------------------------------------
 
@@ -56,6 +78,13 @@ INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `jenis_kelamin`, `tempat_lahir`, `
 --
 
 --
+-- Indexes for table `dosen`
+--
+ALTER TABLE `dosen`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nidn` (`nidn`);
+
+--
 -- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -65,6 +94,12 @@ ALTER TABLE `mahasiswa`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `dosen`
+--
+ALTER TABLE `dosen`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
