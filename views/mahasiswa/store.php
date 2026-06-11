@@ -1,5 +1,5 @@
 <?php
-require '../config/database.php';
+require '../../config/database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nim = mysqli_real_escape_string($conn, $_POST['nim']);

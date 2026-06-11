@@ -1,5 +1,5 @@
 <?php
-require '../config/database.php';
+require '../../config/database.php';
 
 $total = mysqli_fetch_assoc(
     mysqli_query(
@@ -24,8 +24,15 @@ $lulus = mysqli_fetch_assoc(
     )
 );
 
-require '../templates/header.php';
-require '../templates/sidebar.php';
+$dosen_total = mysqli_fetch_assoc(
+    mysqli_query(
+        $conn,
+        "SELECT COUNT(*) as total FROM dosen"
+    )
+);
+
+require '../../templates/header.php';
+require '../../templates/sidebar.php';
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
@@ -36,7 +43,19 @@ require '../templates/sidebar.php';
 </div>
 
 <div class="row g-4 mb-4">
-    <div class="col-md-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-info h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title text-uppercase fw-semibold mb-3">Total Dosen</h5>
+                <h2 class="display-4 fw-bold mb-0"><?= $dosen_total['total'] ?? 0 ?></h2>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0">
+                <small><i class="fa-solid fa-user-tie me-2"></i> Pengajar terdaftar</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
         <div class="card text-white bg-primary h-100 shadow-sm border-0">
             <div class="card-body">
                 <h5 class="card-title text-uppercase fw-semibold mb-3">Total Mahasiswa</h5>
@@ -48,26 +67,26 @@ require '../templates/sidebar.php';
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="card text-white bg-success h-100 shadow-sm border-0">
             <div class="card-body">
                 <h5 class="card-title text-uppercase fw-semibold mb-3">Mahasiswa Aktif</h5>
                 <h2 class="display-4 fw-bold mb-0"><?= $aktif['total'] ?? 0 ?></h2>
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
-                <small><i class="fa-solid fa-check-circle me-2"></i> Sedang menempuh studi</small>
+                <small><i class="fa-solid fa-check-circle me-2"></i> Sedang studi</small>
             </div>
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="card text-white bg-warning h-100 shadow-sm border-0">
             <div class="card-body">
                 <h5 class="card-title text-uppercase fw-semibold mb-3">Mahasiswa Lulus</h5>
                 <h2 class="display-4 fw-bold mb-0"><?= $lulus['total'] ?? 0 ?></h2>
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
-                <small><i class="fa-solid fa-graduation-cap me-2"></i> Telah menyelesaikan studi</small>
+                <small><i class="fa-solid fa-graduation-cap me-2"></i> Telah lulus</small>
             </div>
         </div>
     </div>
@@ -82,4 +101,4 @@ require '../templates/sidebar.php';
     </div>
 </div>
 
-<?php require '../templates/footer.php'; ?>
+<?php require '../../templates/footer.php'; ?>

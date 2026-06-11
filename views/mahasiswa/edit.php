@@ -1,5 +1,5 @@
 <?php
-require '../config/database.php';
+require '../../config/database.php';
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
@@ -15,8 +15,8 @@ if (!$mhs) {
     exit;
 }
 
-require '../templates/header.php';
-require '../templates/sidebar.php';
+require '../../templates/header.php';
+require '../../templates/sidebar.php';
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4 border-bottom">
@@ -70,4 +70,4 @@ require '../templates/sidebar.php';
     </div>
 </div>
 
-<?php require '../templates/footer.php'; ?>
+<?php require '../../templates/footer.php'; ?>

@@ -25,6 +25,11 @@ $dir = basename(dirname($_SERVER['PHP_SELF']));
                 <i class="fa-solid fa-users me-2"></i> Data Mahasiswa
             </a>
         </li>
+        <li class="nav-item">
+            <a href="../dosen/index.php" class="nav-link text-white <?= ($dir == 'dosen') ? 'active' : '' ?>">
+                <i class="fa-solid fa-user-tie me-2"></i> Data Dosen
+            </a>
+        </li>
     </ul>
 </aside>
 <main class="flex-grow-1 p-4" style="min-width: 0; transition: all 0.3s ease; height: 100vh; overflow-y: auto;">
