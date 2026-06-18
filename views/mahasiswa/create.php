@@ -41,7 +41,7 @@ require '../../templates/sidebar.php';
                 <select class="form-select" id="status" name="status" required>
                     <option value="Aktif">Aktif</option>
                     <option value="Lulus">Lulus</option>
-                    <option value="Cuti">Cuti</option>
+                    <option value="Nonaktif">Cuti</option>
                 </select>
             </div>
 
@@ -52,4 +52,4 @@ require '../../templates/sidebar.php';
     </div>
 </div>
 
-<?php require '../templates/footer.php'; ?>
+<?php require '../../templates/footer.php'; ?>

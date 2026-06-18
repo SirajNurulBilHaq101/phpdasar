@@ -16,6 +16,14 @@ $aktif = mysqli_fetch_assoc(
     )
 );
 
+$nonaktif = mysqli_fetch_assoc(
+    mysqli_query(
+        $conn,
+        "SELECT COUNT(*) as total FROM mahasiswa
+         WHERE status='Nonaktif'"
+    )
+);
+
 $lulus = mysqli_fetch_assoc(
     mysqli_query(
         $conn,
@@ -72,6 +80,18 @@ require '../../templates/sidebar.php';
             <div class="card-body">
                 <h5 class="card-title text-uppercase fw-semibold mb-3">Mahasiswa Aktif</h5>
                 <h2 class="display-4 fw-bold mb-0"><?= $aktif['total'] ?? 0 ?></h2>
+            </div>
+            <div class="card-footer bg-transparent border-0 pt-0">
+                <small><i class="fa-solid fa-check-circle me-2"></i> Sedang studi</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-danger h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title text-uppercase fw-semibold mb-3">Mahasiswa Non-Aktif</h5>
+                <h2 class="display-4 fw-bold mb-0"><?= $nonaktif['total'] ?? 0 ?></h2>
             </div>
             <div class="card-footer bg-transparent border-0 pt-0">
                 <small><i class="fa-solid fa-check-circle me-2"></i> Sedang studi</small>
