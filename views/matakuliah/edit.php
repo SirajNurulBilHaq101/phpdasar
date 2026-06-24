@@ -7,7 +7,7 @@ if (!$id) {
     exit;
 }
 
-$query = mysqli_query($conn, "SELECT * FROM matakuliah WHERE id = '$id'");
+$query = mysqli_query($conn, "SELECT * FROM tbl_matakuliah WHERE id_mk = '$id'");
 $mk = mysqli_fetch_assoc($query);
 
 if (!$mk) {
@@ -32,16 +32,16 @@ require '../../templates/sidebar.php';
 <div class="card shadow-sm border-0" style="max-width: 600px;">
     <div class="card-body p-4">
         <form action="update.php" method="POST">
-            <input type="hidden" name="id" value="<?= $mk['id'] ?>">
+            <input type="hidden" name="id" value="<?= $mk['id_mk'] ?>">
             
             <div class="mb-3">
                 <label for="nama" class="form-label fw-medium">Nama Mata Kuliah</label>
-                <input type="text" class="form-control" id="nama" name="nama" required value="<?= htmlspecialchars($mk['nama']) ?>">
+                <input type="text" class="form-control" id="nama" name="nama" required value="<?= htmlspecialchars($mk['nama_mk']) ?>">
             </div>
             
             <div class="mb-3">
                 <label for="kode" class="form-label fw-medium">Kode</label>
-                <input type="number" class="form-control" id="kode" name="kode" required value="<?= htmlspecialchars($mk['kode']) ?>">
+                <input type="number" class="form-control" id="kode" name="kode" required value="<?= htmlspecialchars($mk['kode_mk']) ?>">
             </div>
 
 

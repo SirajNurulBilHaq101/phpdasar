@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $kode = mysqli_real_escape_string($conn, $_POST['kode']);
    
 
-    $query = "UPDATE matakuliah SET 
-                nama = '$nama', 
-                kode = '$kode'
-              WHERE id = '$id'";
+    $query = "UPDATE tbl_matakuliah SET 
+                nama_mk = '$nama', 
+                kode_mk = '$kode'
+              WHERE id_mk = '$id'";
 
     if (mysqli_query($conn, $query)) {
         header("Location: index.php");

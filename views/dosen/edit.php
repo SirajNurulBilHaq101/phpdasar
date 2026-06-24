@@ -7,7 +7,7 @@ if (!$id) {
     exit;
 }
 
-$query = mysqli_query($conn, "SELECT * FROM dosen WHERE id = '$id'");
+$query = mysqli_query($conn, "SELECT * FROM tbl_dosen WHERE id_dsn = '$id'");
 $dsn = mysqli_fetch_assoc($query);
 
 if (!$dsn) {
@@ -36,25 +36,25 @@ require '../../templates/sidebar.php';
             
             <div class="mb-3">
                 <label for="nidn" class="form-label fw-medium">NIDN</label>
-                <input type="text" class="form-control" id="nidn" name="nidn" required value="<?= htmlspecialchars($dsn['nidn']) ?>">
+                <input type="text" class="form-control" id="nidn" name="nidn" required value="<?= htmlspecialchars($dsn['nidn_dsn']) ?>">
             </div>
             
             <div class="mb-3">
                 <label for="nama" class="form-label fw-medium">Nama Lengkap & Gelar</label>
-                <input type="text" class="form-control" id="nama" name="nama" required value="<?= htmlspecialchars($dsn['nama']) ?>">
+                <input type="text" class="form-control" id="nama" name="nama" required value="<?= htmlspecialchars($dsn['nama_dsn']) ?>">
             </div>
 
             <div class="mb-3">
                 <label for="keahlian" class="form-label fw-medium">Bidang Keahlian</label>
-                <input type="text" class="form-control" id="keahlian" name="keahlian" required value="<?= htmlspecialchars($dsn['keahlian']) ?>">
+                <input type="text" class="form-control" id="keahlian" name="keahlian" required value="<?= htmlspecialchars($dsn['keahlian_dsn']) ?>">
             </div>
 
             <div class="mb-4">
                 <label for="status" class="form-label fw-medium">Status</label>
                 <select class="form-select" id="status" name="status" required>
-                    <option value="Aktif" <?= ($dsn['status'] == 'Aktif') ? 'selected' : '' ?>>Aktif</option>
-                    <option value="Cuti" <?= ($dsn['status'] == 'Cuti') ? 'selected' : '' ?>>Cuti</option>
-                    <option value="Keluar" <?= ($dsn['status'] == 'Keluar') ? 'selected' : '' ?>>Keluar</option>
+                    <option value="Aktif" <?= ($dsn['status_dsn'] == 'Aktif') ? 'selected' : '' ?>>Aktif</option>
+                    <option value="Cuti" <?= ($dsn['status_dsn'] == 'Cuti') ? 'selected' : '' ?>>Cuti</option>
+                    <option value="Keluar" <?= ($dsn['status_dsn'] == 'Keluar') ? 'selected' : '' ?>>Keluar</option>
                 </select>
             </div>
 

@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-    $query = "UPDATE mahasiswa SET 
-                nim = '$nim', 
-                nama = '$nama', 
-                jurusan = '$jurusan', 
-                angkatan = '$angkatan', 
-                status = '$status' 
+    $query = "UPDATE tbl_mahasiswa SET 
+                nim_mhs = '$nim', 
+                nama_mhs = '$nama', 
+                jurusan_mhs = '$jurusan', 
+                angkatan_mhs = '$angkatan', 
+                status_mhs = '$status' 
               WHERE id = '$id'";
 
     if (mysqli_query($conn, $query)) {

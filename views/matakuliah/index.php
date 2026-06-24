@@ -3,7 +3,7 @@ require '../../config/database.php';
 
 $data = mysqli_query(
     $conn,
-    "SELECT * FROM matakuliah ORDER BY id DESC"
+    "SELECT * FROM tbl_matakuliah ORDER BY id_mk DESC"
 );
 
 require '../../templates/header.php';
@@ -40,18 +40,18 @@ require '../../templates/sidebar.php';
                         <tr>
                             <td class="px-4 align-middle"><?= $no++ ?></td>
                             
-                            <td class="align-middle fw-medium"><?= htmlspecialchars($mk['nama']) ?></td>
-                            <td class="align-middle fw-medium"><?= htmlspecialchars($mk['kode']) ?></td>
+                            <td class="align-middle fw-medium"><?= htmlspecialchars($mk['nama_mk']) ?></td>
+                            <td class="align-middle fw-medium"><?= htmlspecialchars($mk['kode_mk']) ?></td>
                             
                             <td class="px-4 align-middle text-end">
                                 <div class="btn-group" role="group">
-                                    <a href="show.php?id=<?= $mk['id'] ?>" class="btn btn-sm btn-info text-white" title="Detail">
+                                    <a href="show.php?id=<?= $mk['id_mk'] ?>" class="btn btn-sm btn-info text-white" title="Detail">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="edit.php?id=<?= $mk['id'] ?>" class="btn btn-sm btn-warning text-dark" title="Edit">
+                                    <a href="edit.php?id=<?= $mk['id_mk'] ?>" class="btn btn-sm btn-warning text-dark" title="Edit">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <a href="delete.php?id=<?= $mk['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" title="Hapus">
+                                    <a href="delete.php?id=<?= $mk['id_mk'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" title="Hapus">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </div>

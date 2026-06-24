@@ -7,7 +7,7 @@ if (!$id) {
     exit;
 }
 
-$query = mysqli_query($conn, "SELECT * FROM mahasiswa WHERE id = '$id'");
+$query = mysqli_query($conn, "SELECT * FROM tbl_mahasiswa WHERE id_mhs = '$id'");
 $mhs = mysqli_fetch_assoc($query);
 
 if (!$mhs) {

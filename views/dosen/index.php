@@ -3,7 +3,7 @@ require '../../config/database.php';
 
 $data = mysqli_query(
     $conn,
-    "SELECT * FROM dosen ORDER BY id DESC"
+    "SELECT * FROM tbl_dosen ORDER BY id_dsn DESC"
 );
 
 require '../../templates/header.php';
@@ -41,27 +41,27 @@ require '../../templates/sidebar.php';
                     ?>
                         <tr>
                             <td class="px-4 align-middle"><?= $no++ ?></td>
-                            <td class="align-middle fw-medium"><?= htmlspecialchars($dsn['nidn']) ?></td>
-                            <td class="align-middle"><?= htmlspecialchars($dsn['nama']) ?></td>
-                            <td class="align-middle"><?= htmlspecialchars($dsn['keahlian']) ?></td>
+                            <td class="align-middle fw-medium"><?= htmlspecialchars($dsn['nidn_dsn']) ?></td>
+                            <td class="align-middle"><?= htmlspecialchars($dsn['nama_dsn']) ?></td>
+                            <td class="align-middle"><?= htmlspecialchars($dsn['keahlian_dsn']) ?></td>
                             <td class="align-middle">
-                                <?php if(strtolower($dsn['status']) == 'aktif'): ?>
+                                <?php if(strtolower($dsn['status_dsn']) == 'aktif'): ?>
                                     <span class="badge bg-success">Aktif</span>
-                                <?php elseif(strtolower($dsn['status']) == 'cuti'): ?>
+                                <?php elseif(strtolower($dsn['status_dsn']) == 'cuti'): ?>
                                     <span class="badge bg-warning text-dark">Cuti</span>
                                 <?php else: ?>
-                                    <span class="badge bg-secondary"><?= htmlspecialchars($dsn['status']) ?></span>
+                                    <span class="badge bg-secondary"><?= htmlspecialchars($dsn['status_dsn']) ?></span>
                                 <?php endif; ?>
                             </td>
                             <td class="px-4 align-middle text-end">
                                 <div class="btn-group" role="group">
-                                    <a href="show.php?id=<?= $dsn['id'] ?>" class="btn btn-sm btn-info text-white" title="Detail">
+                                    <a href="show.php?id=<?= $dsn['id_dsn'] ?>" class="btn btn-sm btn-info text-white" title="Detail">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="edit.php?id=<?= $dsn['id'] ?>" class="btn btn-sm btn-warning text-dark" title="Edit">
+                                    <a href="edit.php?id=<?= $dsn['id_dsn'] ?>" class="btn btn-sm btn-warning text-dark" title="Edit">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <a href="delete.php?id=<?= $dsn['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data dosen ini?')" title="Hapus">
+                                    <a href="delete.php?id=<?= $dsn['id_dsn'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data dosen ini?')" title="Hapus">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </div>

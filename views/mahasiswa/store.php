@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-    $query = "INSERT INTO mahasiswa (nim, nama, jurusan, angkatan, status) 
+    $query = "INSERT INTO tbl_mahasiswa (nim_mhs, nama_mhs, jurusan_mhs, angkatan_mhs, status_mhs) 
               VALUES ('$nim', '$nama', '$jurusan', '$angkatan', '$status')";
 
     if (mysqli_query($conn, $query)) {

@@ -7,7 +7,7 @@ if (!$id) {
     exit;
 }
 
-$query = mysqli_query($conn, "SELECT * FROM dosen WHERE id = '$id'");
+$query = mysqli_query($conn, "SELECT * FROM tbl_dosen WHERE id_dsn = '$id'");
 $dsn = mysqli_fetch_assoc($query);
 
 if (!$dsn) {
@@ -35,16 +35,16 @@ require '../../templates/sidebar.php';
             <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3 shadow" style="width: 100px; height: 100px;">
                 <i class="fa-solid fa-user-tie fs-1"></i>
             </div>
-            <h3 class="mb-1 fw-bold"><?= htmlspecialchars($dsn['nama']) ?></h3>
-            <p class="text-muted mb-2">NIDN: <?= htmlspecialchars($dsn['nidn']) ?></p>
+            <h3 class="mb-1 fw-bold"><?= htmlspecialchars($dsn['nama_dsn']) ?></h3>
+            <p class="text-muted mb-2">NIDN: <?= htmlspecialchars($dsn['nidn_dsn']) ?></p>
             
             <div class="mt-2">
-                <?php if(strtolower($dsn['status']) == 'aktif'): ?>
+                <?php if(strtolower($dsn['status_dsn']) == 'aktif'): ?>
                     <span class="badge bg-success px-3 py-2 fs-6">Aktif</span>
-                <?php elseif(strtolower($dsn['status']) == 'cuti'): ?>
+                <?php elseif(strtolower($dsn['status_dsn']) == 'cuti'): ?>
                     <span class="badge bg-warning text-dark px-3 py-2 fs-6">Cuti</span>
                 <?php else: ?>
-                    <span class="badge bg-secondary px-3 py-2 fs-6"><?= htmlspecialchars($dsn['status']) ?></span>
+                    <span class="badge bg-secondary px-3 py-2 fs-6"><?= htmlspecialchars($dsn['status_dsn']) ?></span>
                 <?php endif; ?>
             </div>
         </div>
@@ -52,15 +52,15 @@ require '../../templates/sidebar.php';
         <ul class="list-group list-group-flush mb-4">
             <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
                 <span class="text-muted">Nomor Induk Dosen Nasional</span>
-                <span class="fw-medium"><?= htmlspecialchars($dsn['nidn']) ?></span>
+                <span class="fw-medium"><?= htmlspecialchars($dsn['nidn_dsn']) ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
                 <span class="text-muted">Nama Lengkap & Gelar</span>
-                <span class="fw-medium"><?= htmlspecialchars($dsn['nama']) ?></span>
+                <span class="fw-medium"><?= htmlspecialchars($dsn['nama_dsn']) ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3">
                 <span class="text-muted">Bidang Keahlian</span>
-                <span class="fw-medium"><?= htmlspecialchars($dsn['keahlian']) ?></span>
+                <span class="fw-medium"><?= htmlspecialchars($dsn['keahlian_dsn']) ?></span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-bottom-0">
                 <span class="text-muted">Bergabung Pada</span>
@@ -69,10 +69,10 @@ require '../../templates/sidebar.php';
         </ul>
         
         <div class="d-flex gap-2">
-            <a href="edit.php?id=<?= $dsn['id'] ?>" class="btn btn-warning flex-grow-1 fw-medium">
+            <a href="edit.php?id=<?= $dsn['id_dsn'] ?>" class="btn btn-warning flex-grow-1 fw-medium">
                 <i class="fa-solid fa-pen-to-square me-1"></i> Edit Profil
             </a>
-            <a href="delete.php?id=<?= $dsn['id'] ?>" class="btn btn-danger flex-grow-1 fw-medium" onclick="return confirm('Apakah Anda yakin ingin menghapus data profil ini?')">
+            <a href="delete.php?id=<?= $dsn['id_dsn'] ?>" class="btn btn-danger flex-grow-1 fw-medium" onclick="return confirm('Apakah Anda yakin ingin menghapus data profil ini?')">
                 <i class="fa-solid fa-trash me-1"></i> Hapus Profil
             </a>
         </div>

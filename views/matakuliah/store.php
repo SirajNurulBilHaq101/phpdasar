@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $kode = mysqli_real_escape_string($conn, $_POST['kode']);
 
 
-    $query = "INSERT INTO matakuliah (nama, kode) 
+    $query = "INSERT INTO tbl_matakuliah (nama_mk, kode_mk) 
               VALUES ('$nama', '$kode')";
 
     if (mysqli_query($conn, $query)) {

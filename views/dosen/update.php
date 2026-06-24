@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $keahlian = mysqli_real_escape_string($conn, $_POST['keahlian']);
     $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-    $query = "UPDATE dosen SET 
-                nidn = '$nidn', 
-                nama = '$nama', 
-                keahlian = '$keahlian', 
-                status = '$status' 
-              WHERE id = '$id'";
+    $query = "UPDATE tbl_dosen SET 
+                nidn_dsn = '$nidn', 
+                nama_dsn = '$nama', 
+                keahlian_dsn = '$keahlian', 
+                status_dsn = '$status' 
+              WHERE id_dsn = '$id'";
 
     if (mysqli_query($conn, $query)) {
         header("Location: index.php");

@@ -4,38 +4,38 @@ require '../../config/database.php';
 $total = mysqli_fetch_assoc(
     mysqli_query(
         $conn,
-        "SELECT COUNT(*) as total FROM mahasiswa"
+        "SELECT COUNT(*) as total FROM tbl_mahasiswa"
     )
 );
 
 $aktif = mysqli_fetch_assoc(
     mysqli_query(
         $conn,
-        "SELECT COUNT(*) as total FROM mahasiswa
-         WHERE status='Aktif'"
+        "SELECT COUNT(*) as total FROM tbl_mahasiswa
+         WHERE status_mhs ='Aktif'"
     )
 );
 
 $nonaktif = mysqli_fetch_assoc(
     mysqli_query(
         $conn,
-        "SELECT COUNT(*) as total FROM mahasiswa
-         WHERE status='Nonaktif'"
+        "SELECT COUNT(*) as total FROM tbl_mahasiswa
+         WHERE status_mhs ='Nonaktif'"
     )
 );
 
 $lulus = mysqli_fetch_assoc(
     mysqli_query(
         $conn,
-        "SELECT COUNT(*) as total FROM mahasiswa
-         WHERE status='Lulus'"
+        "SELECT COUNT(*) as total FROM tbl_mahasiswa
+         WHERE status_mhs ='Lulus'"
     )
 );
 
 $dosen_total = mysqli_fetch_assoc(
     mysqli_query(
         $conn,
-        "SELECT COUNT(*) as total FROM dosen"
+        "SELECT COUNT(*) as total FROM tbl_dosen"
     )
 );
 

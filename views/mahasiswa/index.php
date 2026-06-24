@@ -3,7 +3,7 @@ require '../../config/database.php';
 
 $data = mysqli_query(
     $conn,
-    "SELECT * FROM mahasiswa ORDER BY id DESC"
+    "SELECT * FROM tbl_mahasiswa ORDER BY id_mhs DESC"
 );
 
 require '../../templates/header.php';
@@ -42,28 +42,28 @@ require '../../templates/sidebar.php';
                     ?>
                         <tr>
                             <td class="px-4 align-middle"><?= $no++ ?></td>
-                            <td class="align-middle fw-medium"><?= htmlspecialchars($mhs['nim']) ?></td>
-                            <td class="align-middle"><?= htmlspecialchars($mhs['nama']) ?></td>
-                            <td class="align-middle"><?= htmlspecialchars($mhs['jurusan']) ?></td>
-                            <td class="align-middle"><?= htmlspecialchars($mhs['angkatan']) ?></td>
+                            <td class="align-middle fw-medium"><?= htmlspecialchars($mhs['nim_mhs']) ?></td>
+                            <td class="align-middle"><?= htmlspecialchars($mhs['nama_mhs']) ?></td>
+                            <td class="align-middle"><?= htmlspecialchars($mhs['jurusan_mhs']) ?></td>
+                            <td class="align-middle"><?= htmlspecialchars($mhs['angkatan_mhs']) ?></td>
                             <td class="align-middle">
-                                <?php if(strtolower($mhs['status']) == 'aktif'): ?>
+                                <?php if(strtolower($mhs['status_mhs']) == 'aktif'): ?>
                                     <span class="badge bg-success">Aktif</span>
-                                <?php elseif(strtolower($mhs['status']) == 'lulus'): ?>
+                                <?php elseif(strtolower($mhs['status_mhs']) == 'lulus'): ?>
                                     <span class="badge bg-primary">Lulus</span>
                                 <?php else: ?>
-                                    <span class="badge bg-secondary"><?= htmlspecialchars($mhs['status']) ?></span>
+                                    <span class="badge bg-secondary"><?= htmlspecialchars($mhs['status_mhs']) ?></span>
                                 <?php endif; ?>
                             </td>
                             <td class="px-4 align-middle text-end">
                                 <div class="btn-group" role="group">
-                                    <a href="show.php?id=<?= $mhs['id'] ?>" class="btn btn-sm btn-info text-white" title="Detail">
+                                    <a href="show.php?id=<?= $mhs['id_mhs'] ?>" class="btn btn-sm btn-info text-white" title="Detail">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    <a href="edit.php?id=<?= $mhs['id'] ?>" class="btn btn-sm btn-warning text-dark" title="Edit">
+                                    <a href="edit.php?id=<?= $mhs['id_mhs'] ?>" class="btn btn-sm btn-warning text-dark" title="Edit">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <a href="delete.php?id=<?= $mhs['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" title="Hapus">
+                                    <a href="delete.php?id=<?= $mhs['id_mhs'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" title="Hapus">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </div>

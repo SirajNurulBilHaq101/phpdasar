@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $keahlian = mysqli_real_escape_string($conn, $_POST['keahlian']);
     $status = mysqli_real_escape_string($conn, $_POST['status']);
 
-    $query = "INSERT INTO dosen (nidn, nama, keahlian, status) 
+    $query = "INSERT INTO tbl_dosen (nidn_dsn, nama_dsn, keahlian_dsn, status_dsn) 
               VALUES ('$nidn', '$nama', '$keahlian', '$status')";
 
     if (mysqli_query($conn, $query)) {

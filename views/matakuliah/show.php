@@ -7,7 +7,7 @@ if (!$id) {
     exit;
 }
 
-$query = mysqli_query($conn, "SELECT * FROM matakuliah WHERE id = '$id'");
+$query = mysqli_query($conn, "SELECT * FROM tbl_matakuliah WHERE id_mk = '$id'");
 $mk = mysqli_fetch_assoc($query);
 
 if (!$mk) {
@@ -35,17 +35,17 @@ require '../../templates/sidebar.php';
             <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3 shadow" style="width: 100px; height: 100px;">
                 <i class="fa-solid fa-user fs-1"></i>
             </div>
-            <h3 class="mb-1 fw-bold"><?= htmlspecialchars($mk['nama']) ?></h3>
-            <p class="text-muted mb-2"><?= htmlspecialchars($mk['kode']) ?></p>
+            <h3 class="mb-1 fw-bold"><?= htmlspecialchars($mk['nama_mk']) ?></h3>
+            <p class="text-muted mb-2"><?= htmlspecialchars($mk['kode_mk']) ?></p>
             
         </div>
 
         
         <div class="d-flex gap-2">
-            <a href="edit.php?id=<?= $mk['id'] ?>" class="btn btn-warning flex-grow-1 fw-medium">
+            <a href="edit.php?id=<?= $mk['id_mk'] ?>" class="btn btn-warning flex-grow-1 fw-medium">
                 <i class="fa-solid fa-pen-to-square me-1"></i> Edit Profil
             </a>
-            <a href="delete.php?id=<?= $mk['id'] ?>" class="btn btn-danger flex-grow-1 fw-medium" onclick="return confirm('Apakah Anda yakin ingin menghapus data profil ini?')">
+            <a href="delete.php?id=<?= $mk['id_mk'] ?>" class="btn btn-danger flex-grow-1 fw-medium" onclick="return confirm('Apakah Anda yakin ingin menghapus data profil ini?')">
                 <i class="fa-solid fa-trash me-1"></i> Hapus Profil
             </a>
         </div>
