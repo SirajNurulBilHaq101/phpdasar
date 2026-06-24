@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 24, 2026 at 06:08 AM
+-- Generation Time: Jun 24, 2026 at 06:20 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.3
 
@@ -94,6 +94,20 @@ CREATE TABLE `tbl_matakuliah` (
 INSERT INTO `tbl_matakuliah` (`id_mk`, `nama_mk`, `kode_mk`, `created_at`) VALUES
 (1, 'asd', 12345, '2026-06-18 10:16:08');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_nilai`
+--
+
+CREATE TABLE `tbl_nilai` (
+  `id_nilai` int NOT NULL,
+  `id_mhs` int NOT NULL,
+  `id_dsn` int NOT NULL,
+  `id_mk` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -119,6 +133,15 @@ ALTER TABLE `tbl_matakuliah`
   ADD PRIMARY KEY (`id_mk`);
 
 --
+-- Indexes for table `tbl_nilai`
+--
+ALTER TABLE `tbl_nilai`
+  ADD PRIMARY KEY (`id_nilai`),
+  ADD KEY `id_mhs` (`id_mhs`),
+  ADD KEY `id_mk` (`id_mk`),
+  ADD KEY `id_dsn` (`id_dsn`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -139,6 +162,24 @@ ALTER TABLE `tbl_mahasiswa`
 --
 ALTER TABLE `tbl_matakuliah`
   MODIFY `id_mk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_nilai`
+--
+ALTER TABLE `tbl_nilai`
+  MODIFY `id_nilai` int NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_nilai`
+--
+ALTER TABLE `tbl_nilai`
+  ADD CONSTRAINT `tbl_nilai_ibfk_1` FOREIGN KEY (`id_mhs`) REFERENCES `tbl_mahasiswa` (`id_mhs`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_nilai_ibfk_2` FOREIGN KEY (`id_mk`) REFERENCES `tbl_matakuliah` (`id_mk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_nilai_ibfk_3` FOREIGN KEY (`id_dsn`) REFERENCES `tbl_dosen` (`id_dsn`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

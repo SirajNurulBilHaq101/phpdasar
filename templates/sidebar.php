@@ -35,6 +35,11 @@ $dir = basename(dirname($_SERVER['PHP_SELF']));
                 <i class="fa-solid fa-book me-2"></i> Data Mata Kuliah
             </a>
         </li>
+        <li class="nav-item">
+            <a href="../nilai/index.php" class="nav-link text-white <?= ($dir == 'nilai') ? 'active' : '' ?>">
+                <i class="fa-solid fa-star me-2"></i> Data Nilai
+            </a>
+        </li>
     </ul>
 </aside>
 <main class="flex-grow-1 p-4" style="min-width: 0; transition: all 0.3s ease; height: 100vh; overflow-y: auto;">
